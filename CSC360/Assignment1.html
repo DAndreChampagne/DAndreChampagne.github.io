@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <base href="/Users/dan/Google Drive/School/ECSU Code/"> -->
+    <base href="https://DAndreChampagne.github.io/">
+    <title>Daniel Champagne - CSC360 - Assignment 1</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="lib/kendoui/styles/kendo.common.min.css" />
+        <link rel="stylesheet" href="lib/kendoui/styles/kendo.default.min.css" />
+        <link rel="stylesheet" href="lib/kendoui/styles/kendo.default.mobile.min.css" />
+        
+        <link rel="stylesheet" href="css/site.css" />
+    </environment>
+    
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .k-textbox {
+            width: 75px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div name="_NavMenu"></div>
+    <div name="_CookieConsentPartial"></div>
+
+    <div class="container body-content k-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <h1>Dan Champagne - Assignment 1</h1>
+                    <h2>Raspberry Pi Single Board Computers</h2>
+                    <p>Here are some super awesome products everyone should buy!</p>
+                </div>
+            
+                <form>
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>Buy</th>
+                                <th>Quantity</th>
+                                <th>Name</th>
+                                <th>Link</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input id="c1" type="checkbox" class="k-checkbox" />
+                                    <label for="c1" class="k-checkbox-label">&nbsp;</label>
+                                </td>
+                                <td><input type="number" min="1" max="10" class="k-textbox" /></td>
+                                <td>Raspberry Pi 3 Model B+</td>
+                                <td><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/" target="_blank">https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/</a></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="c2" type="checkbox" class="k-checkbox" />
+                                    <label for="c2" class="k-checkbox-label">&nbsp;</label>
+                                </td>
+                                <td><input type="number" min="1" max="10" class="k-textbox" /></td>
+                                <td>RASPBERRY PI 3 MODEL B</td>
+                                <td><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/" target="_blank">https://www.raspberrypi.org/products/raspberry-pi-3-model-b/</a></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="c3" type="checkbox" class="k-checkbox" />
+                                    <label for="c3" class="k-checkbox-label">&nbsp;</label>
+                                </td>
+                                <td><input type="number" min="1" max="10" class="k-textbox" /></td>
+                                <td>RASPBERRY PI 2 MODEL B</td>
+                                <td><a href="https://www.raspberrypi.org/products/raspberry-pi-2-model-b/" target="_blank">https://www.raspberrypi.org/products/raspberry-pi-2-model-b/</a></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="c4" type="checkbox" class="k-checkbox" />
+                                    <label for="c4" class="k-checkbox-label">&nbsp;</label>
+                                </td>
+                                <td><input type="number" min="1" max="10" class="k-textbox" /></td>
+                                <td>RASPBERRY PI ZERO W</td>
+                                <td><a href="https://www.raspberrypi.org/products/raspberry-pi-zero-w/" target="_blank">https://www.raspberrypi.org/products/raspberry-pi-zero-w/</a></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input id="c5" type="checkbox" class="k-checkbox" />
+                                    <label for="c5" class="k-checkbox-label">&nbsp;</label>
+                                </td>
+                                <td><input type="number" min="1" max="10" class="k-textbox" /></td>
+                                <td>RASPBERRY PI ZERO</td>
+                                <td><a href="https://www.raspberrypi.org/products/raspberry-pi-zero/" target="_blank">https://www.raspberrypi.org/products/raspberry-pi-zero/</a></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr />
+                    <input class="btn btn-primary" type="submit" />
+                    <input class="btn btn-default" type="reset" />
+                </form>
+            </div>
+        </div>
+    
+
+
+
+        <hr />
+        <footer>
+            <p>&copy; 2018 - Daniel Champagne</p>
+        </footer>
+    </div>
+
+    <environment include="Development">
+        <script src="lib/kendoui/js/jquery.min.js"></script>
+        <script src="lib/kendoui/js/kendo.core.min.js"></script>
+        <script src="lib/kendoui/js/kendo.numerictextbox.min.js"></script>
+        
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+
+        <script src="js/site.js"></script>
+    </environment>
+
+    <script id="scripts"></script>
+
+    <script>
+        $(function(){
+            //$('input[type="number"]').kendoNumericTextBox();
+
+            $('input[type="number"]').each(function(){
+
+                // $(this).kendoNumericTextBox({
+                //     format: "0",
+                //     min: 0,
+                //     max: 10,
+                //     step: 1
+                // });
+            });
+
+
+
+            //LoadValidationScripts();            
+        });
+    </script>
+
+</body>
+</html>
