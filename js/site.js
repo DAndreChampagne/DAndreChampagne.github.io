@@ -96,6 +96,10 @@ function BuildAspLinks() {
 $(function(){
     //BuildAspLinks();
 
+    if (window.location.href.indexOf('github.io') > -1) {
+        $('base').prop('href', 'https://DAndreChampagne.github.io/');
+    }
+
     $.ajax({
         async: true,
         // cache: false,
