@@ -100,7 +100,7 @@ $(function(){
     $.ajax({
         async: true,
         // cache: false,
-        url: domain + '_CookieConsentPartial.html',
+        url: domain + 'CookieConsentPartial.html',
         success: function (d) {
             $('div[name="_CookieConsentPartial"]').prepend(d);
         }
@@ -109,7 +109,7 @@ $(function(){
     $.ajax({
         async: true,
         // cache: false,
-        url: domain + '_NavMenuPartial.html',
+        url: domain + 'NavMenuPartial.html',
         success: function (d) {
             $('div[name="_NavMenu"]').prepend(d);
         }
