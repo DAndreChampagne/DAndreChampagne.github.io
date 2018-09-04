@@ -98,7 +98,7 @@ $(function(){
     
     $.ajax({
         async: true,
-        // cache: false,
+        cache: false,
         url: 'CookieConsentPartial.html',
         success: function (d) {
             $('div[name="_CookieConsentPartial"]').prepend(d);
@@ -107,7 +107,7 @@ $(function(){
 
     $.ajax({
         async: true,
-        // cache: false,
+        cache: false,
         url: 'NavMenuPartial.html',
         success: function (d) {
             $('div[name="_NavMenu"]').prepend(d);
