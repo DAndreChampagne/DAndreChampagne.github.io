@@ -95,15 +95,12 @@ function BuildAspLinks() {
 
 $(function(){
     //BuildAspLinks();
-
-    if (window.location.href.indexOf('github.io') > -1) {
-        $('base').prop('href', 'https://DAndreChampagne.github.io/');
-    }
+    var domain = '';
 
     $.ajax({
         async: true,
         // cache: false,
-        url: '_CookieConsentPartial.html',
+        url: domain + '_CookieConsentPartial.html',
         success: function (d) {
             $('div[name="_CookieConsentPartial"]').prepend(d);
         }
@@ -112,7 +109,7 @@ $(function(){
     $.ajax({
         async: true,
         // cache: false,
-        url: '_NavMenuPartial.html',
+        url: domain + '_NavMenuPartial.html',
         success: function (d) {
             $('div[name="_NavMenu"]').prepend(d);
         }
