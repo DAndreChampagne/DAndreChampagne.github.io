@@ -95,12 +95,11 @@ function BuildAspLinks() {
 
 $(function(){
     //BuildAspLinks();
-    var domain = '';
-
+    
     $.ajax({
         async: true,
         // cache: false,
-        url: domain + 'CookieConsentPartial.html',
+        url: 'CookieConsentPartial.html',
         success: function (d) {
             $('div[name="_CookieConsentPartial"]').prepend(d);
         }
@@ -109,7 +108,7 @@ $(function(){
     $.ajax({
         async: true,
         // cache: false,
-        url: domain + 'NavMenuPartial.html',
+        url: 'NavMenuPartial.html',
         success: function (d) {
             $('div[name="_NavMenu"]').prepend(d);
         }
