@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<style>
+		span.hidden {
+			display:none;
+		}
+
+		div#intro {	
+			font-style: italic;
+		}
+
+		div#intro:hover {	
+			color: blue; 
+		}
+
+		div.reveal {
+			display:inline-block;
+		}
+
+		div:hover span.hidden {
+			display:inline;
+			background-color:pink;
+			position: absolute;
+			margin-left:10px;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div id = "intro">
+		<h2> This web page demonstrates the use of the 'hover' pseudoclass for displaying hidden information </h2>
+	</div>
+	
+	<div class = "reveal">
+		Hover over this div to reveal hidden text:
+		<span class = "hidden"> First block of hidden text </span>
+	</div>
+	
+	<br /><br />
+	
+	<div class = "reveal">
+		Hover over this div to reveal more hidden text 
+		<span class = "hidden"> Second block of hidden text </span>
+	</div>
+
+</body>
+
+</html>
