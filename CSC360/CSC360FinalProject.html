@@ -231,12 +231,12 @@
 
                     UpdateChart(response);
                 },
-                // error: function (jqXHR, textStatus, errorThrown) {
-                //     if (typeof(jqXHR.responseJSON) != "undefined")
-                //         alert(jqXHR.responseJSON.message);
-                //     else
-                //         alert('Unknown error occured');
-                // }
+                error: function (jqXHR, textStatus, errorThrown) {
+                    if (typeof(jqXHR.responseJSON) != "undefined")
+                        alert(jqXHR.responseJSON.message);
+                    else
+                        alert('Unknown error occured');
+                }
             });
 
         }
