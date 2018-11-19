@@ -217,6 +217,7 @@
             // results will be processed asynchronously
             $.ajax({
                 url: url,
+                dataType: 'jsonp',
                 method: 'GET',
                 async: true,
                 success: function (response) {
