@@ -113,7 +113,7 @@
 
     <script type="text/javascript">
         // API path
-        var urlWeatherData = "http://api.openweathermap.org/data/2.5/forecast?appid=0d09d4a432b8aff72b20694b8b872f56&zip=__ZIP__,us";
+        var urlWeatherData = "https://api.openweathermap.org/data/2.5/forecast?appid=0d09d4a432b8aff72b20694b8b872f56&zip=__ZIP__,us";
 
         // chart object
         var chart = null;
@@ -217,7 +217,7 @@
             // results will be processed asynchronously
             $.ajax({
                 url: url,
-                dataType: 'jsonp',
+                dataType: 'json',
                 method: 'GET',
                 async: true,
                 success: function (response) {
