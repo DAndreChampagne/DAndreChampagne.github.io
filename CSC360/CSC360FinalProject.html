@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--
+    Author:         Dan Champagne
+    Description:    This web page demonstrates the 5 day forecase API from
+                    OpenWeatherMap.org.
+    
+    OpenWeatherMap: https://openweathermap.org/forecast5
+    Libraries used: Bootstrap 3.3.7
+                    jQuery 3.3.1
+                    Chart.js 2.7.3
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather data</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        .body-content {
+            margin-top: 60px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Home</a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+
+        <div class="row">
+            <div class="col-md-12">
+                <label for="zipcode">Zipcode</label>
+                <input id="zipcode" type="number" class="" min="0" max="99999" value="06042" />
+                <input id="submit" type="button" class="btn btn-xs btn-default" value="Update" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <canvas id="canvas" width="1840" height="920" class="chartjs-render-monitor" style="display: block; height: 460px; width: 920px;"></canvas>
+                <hr />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Results from API
+                        <button type="button" data-iscollapsed="true" data-toggle="collapse" data-target="#data-panel"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                    </div>
+                    <div id="data-panel" class="panel-body collapse">
+                        <div class="table-responsive">
+                            <table class="table results-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date/Time</th>
+                                        <th>Forecast &deg;F</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Show raw API data
+                        <button type="button" data-iscollapsed="true" data-toggle="collapse" data-target="#api-panel"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                    </div>
+                    <div id="api-panel" class="panel-body collapse">
+                        <pre id="apiresult"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <hr />
+        <footer>
+            <p>&copy; 2018 - Daniel Champagne</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        // API path
+        var urlWeatherData = "http://api.openweathermap.org/data/2.5/forecast?appid=0d09d4a432b8aff72b20694b8b872f56&zip=__ZIP__,us";
+
+        // chart object
+        var chart = null;
+
+
+        // Converts kelvin to fahrenheit
+        function KtoF(x) {
+            return (x - 273.15) * (9/5) + 32;
+        }
+
+
+        // Converts kelvin to celcius
+        function KtoC(x) {
+            return (x - 273.15);
+        }
+
+
+        // Updates chart and data table
+        function UpdateChart(data) {
+            var xaxis = []; // x-axis labels
+            var temps = []; // temperature values
+
+            $('#apiresult').html(JSON.stringify(data, null, '\t'));
+
+            $('.results-table > tbody').html(''); // clear data table body
+            data.list.forEach(function (x) {
+                var t = KtoF(x.main.temp).toFixed(1);
+                var d = new Date(x.dt * 1000);
+                d = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+
+                xaxis.push(d);
+                temps.push(t);
+
+                $('.results-table > tbody').append('<tr><td>'+ d +'</td><td>'+t+'</td></tr>');
+            });
+
+            // chart.js configuration object
+            var config = {
+                type: 'line',
+                data: {
+                    labels: xaxis,
+                    datasets: [
+                        { 
+                            data: temps,
+                            label: "Temperature",
+                            borderColor: "#3e95cd",
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Weather for ' + data.city.name + ', ' + data.city.country
+                    },
+                    scales: {
+                        xAxes: [
+                            {
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Date & Time'
+                                }
+                            }
+                        ],
+                        yAxes: [
+                            {
+                                display: true,
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Degrees F'
+                                }
+                            }
+                        ]
+                    }
+                }
+            };
+
+            // check to see if the chart exists. if it does, destroy it.
+            // this prevents a mouse-hover issue that can display the old chart
+            if (chart != null)
+                chart.destroy();
+
+            // creat the chart object
+            chart = new Chart($('#canvas'), config);
+        }
+
+        // pull data from API based on value in zipcode field
+        function PullData() {
+            var zipcode = $('#zipcode').val();
+            var url = urlWeatherData.replace('__ZIP__', zipcode);
+
+            // check for valid zipcode
+            if (zipcode.length != 5) {
+                alert('Invalid zipcode (must be 5 digits).');
+                return;
+            }
+
+            // execute AJAX call for API.
+            // results will be processed asynchronously
+            $.ajax({
+                url: url,
+                method: 'GET',
+                async: true,
+                success: function (response) {
+                    var html = JSON.stringify(response, null, '\t');
+                    localStorage.setItem('weatherapi', JSON.stringify(response));
+
+                    UpdateChart(response);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(jqXHR.responseJSON.message);
+                }
+            });
+
+        }
+
+
+        $(function() {
+            // checks to see if a previous API result is loaded. If it is, it shows that data.
+            // If not, it pulls from the API based on the default value for the zip code field.
+            var localData = localStorage.getItem('weatherapi');
+            if (localData != null) {
+                localData = JSON.parse(localData);
+                UpdateChart(localData);
+            } else {
+                PullData();
+            }
+            
+
+            $('#zipcode').on('keydown', function (e) {
+                if (e.which == 13) {
+                    PullData();
+                }
+            });
+
+            
+            $('#submit').on('click', function(){
+                PullData();
+            });
+
+            
+            $('button[data-toggle="collapse"]').on('click', function(e) {
+                e.preventDefault();
+
+                var iscollapsed = $(this).data('iscollapsed');
+                if (iscollapsed == true) {
+                    $(this).data('iscollapsed', false);
+                    $(this).html('<span class="glyphicon glyphicon-chevron-up"></span>');
+                } else {
+                    $(this).data('iscollapsed', true);
+                    $(this).html('<span class="glyphicon glyphicon-chevron-down"></span>');
+                }
+
+                $($(this).data('target')).collapse('toggle');
+            });
+
+        });
+    </script>
+
+</body>
+</html>
