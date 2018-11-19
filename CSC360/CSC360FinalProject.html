@@ -113,7 +113,8 @@
 
     <script type="text/javascript">
         // API path
-        var urlWeatherData = "https://api.openweathermap.org/data/2.5/forecast?appid=0d09d4a432b8aff72b20694b8b872f56&zip=__ZIP__,us";
+        //var urlWeatherData = "https://api.openweathermap.org/data/2.5/forecast?appid=0d09d4a432b8aff72b20694b8b872f56&zip=__ZIP__,us";
+        var urlWeatherData = "https://api.openweathermap.org/data/2.5/forecast";
 
         // chart object
         var chart = null;
@@ -205,7 +206,6 @@
         // pull data from API based on value in zipcode field
         function PullData() {
             var zipcode = $('#zipcode').val();
-            var url = urlWeatherData.replace('__ZIP__', zipcode);
 
             // check for valid zipcode
             if (zipcode.length != 5) {
@@ -216,7 +216,12 @@
             // execute AJAX call for API.
             // results will be processed asynchronously
             $.ajax({
-                url: url,
+                //url: url,
+                url: 'https://api.openweathermap.org/data/2.5/forecast',
+                data: {
+                    appid: '0d09d4a432b8aff72b20694b8b872f56',
+                    zip: zipcode + ',us'
+                },
                 dataType: 'json',
                 method: 'GET',
                 async: true,
