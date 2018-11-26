@@ -8,6 +8,7 @@
     Libraries used: Bootstrap 3.3.7
                     jQuery 3.3.1
                     Chart.js 2.7.3
+    Live page:      https://dandrechampagne.github.io/CSC360/CSC360FinalProject.html
 -->
 <html>
 <head>
@@ -49,8 +50,262 @@
 
         <div class="row">
             <div class="col-md-12">
-                <label for="zipcode">Zipcode</label>
+                <label for="zipcode">Search by Zipcode: </label>
                 <input id="zipcode" type="number" class="" min="0" max="99999" value="06042" />
+                <label for="cityname">or City name: </label>
+                <input id="cityname" type="text" class="" />
+                <label for="countrycode">&nbsp;</label>
+                <select id="countrycode" class="">
+                    <option value="AF" title="Afghanistan">AF</option>
+                    <option value="AX" title="Åland Islands">AX</option>
+                    <option value="AL" title="Albania">AL</option>
+                    <option value="DZ" title="Algeria">DZ</option>
+                    <option value="AS" title="American Samoa">AS</option>
+                    <option value="AD" title="Andorra">AD</option>
+                    <option value="AO" title="Angola">AO</option>
+                    <option value="AI" title="Anguilla">AI</option>
+                    <option value="AQ" title="Antarctica">AQ</option>
+                    <option value="AG" title="Antigua and Barbuda">AG</option>
+                    <option value="AR" title="Argentina">AR</option>
+                    <option value="AM" title="Armenia">AM</option>
+                    <option value="AW" title="Aruba">AW</option>
+                    <option value="AU" title="Australia">AU</option>
+                    <option value="AT" title="Austria">AT</option>
+                    <option value="AZ" title="Azerbaijan">AZ</option>
+                    <option value="BS" title="Bahamas (the)">BS</option>
+                    <option value="BH" title="Bahrain">BH</option>
+                    <option value="BD" title="Bangladesh">BD</option>
+                    <option value="BB" title="Barbados">BB</option>
+                    <option value="BY" title="Belarus">BY</option>
+                    <option value="BE" title="Belgium">BE</option>
+                    <option value="BZ" title="Belize">BZ</option>
+                    <option value="BJ" title="Benin">BJ</option>
+                    <option value="BM" title="Bermuda">BM</option>
+                    <option value="BT" title="Bhutan">BT</option>
+                    <option value="BO" title="Bolivia (Plurinational State of)">BO</option>
+                    <option value="BQ" title="Bonaire, Sint Eustatius and Saba">BQ</option>
+                    <option value="BA" title="Bosnia and Herzegovina">BA</option>
+                    <option value="BW" title="Botswana">BW</option>
+                    <option value="BV" title="Bouvet Island">BV</option>
+                    <option value="BR" title="Brazil">BR</option>
+                    <option value="IO" title="British Indian Ocean Territory (the)">IO</option>
+                    <option value="BN" title="Brunei Darussalam">BN</option>
+                    <option value="BG" title="Bulgaria">BG</option>
+                    <option value="BF" title="Burkina Faso">BF</option>
+                    <option value="BI" title="Burundi">BI</option>
+                    <option value="CV" title="Cabo Verde">CV</option>
+                    <option value="KH" title="Cambodia">KH</option>
+                    <option value="CM" title="Cameroon">CM</option>
+                    <option value="CA" title="Canada">CA</option>
+                    <option value="KY" title="Cayman Islands (the)">KY</option>
+                    <option value="CF" title="Central African Republic (the)">CF</option>
+                    <option value="TD" title="Chad">TD</option>
+                    <option value="CL" title="Chile">CL</option>
+                    <option value="CN" title="China">CN</option>
+                    <option value="CX" title="Christmas Island">CX</option>
+                    <option value="CC" title="Cocos (Keeling) Islands (the)">CC</option>
+                    <option value="CO" title="Colombia">CO</option>
+                    <option value="KM" title="Comoros (the)">KM</option>
+                    <option value="CD" title="Congo (the Democratic Republic of the)">CD</option>
+                    <option value="CG" title="Congo (the)">CG</option>
+                    <option value="CK" title="Cook Islands (the)">CK</option>
+                    <option value="CR" title="Costa Rica">CR</option>
+                    <option value="CI" title="Côte d'Ivoire">CI</option>
+                    <option value="HR" title="Croatia">HR</option>
+                    <option value="CU" title="Cuba">CU</option>
+                    <option value="CW" title="Curaçao">CW</option>
+                    <option value="CY" title="Cyprus">CY</option>
+                    <option value="CZ" title="Czechia">CZ</option>
+                    <option value="DK" title="Denmark">DK</option>
+                    <option value="DJ" title="Djibouti">DJ</option>
+                    <option value="DM" title="Dominica">DM</option>
+                    <option value="DO" title="Dominican Republic (the)">DO</option>
+                    <option value="EC" title="Ecuador">EC</option>
+                    <option value="EG" title="Egypt">EG</option>
+                    <option value="SV" title="El Salvador">SV</option>
+                    <option value="GQ" title="Equatorial Guinea">GQ</option>
+                    <option value="ER" title="Eritrea">ER</option>
+                    <option value="EE" title="Estonia">EE</option>
+                    <option value="SZ" title="Eswatini">SZ</option>
+                    <option value="ET" title="Ethiopia">ET</option>
+                    <option value="FK" title="Falkland Islands (the) [Malvinas]">FK</option>
+                    <option value="FO" title="Faroe Islands (the)">FO</option>
+                    <option value="FJ" title="Fiji">FJ</option>
+                    <option value="FI" title="Finland">FI</option>
+                    <option value="FR" title="France">FR</option>
+                    <option value="GF" title="French Guiana">GF</option>
+                    <option value="PF" title="French Polynesia">PF</option>
+                    <option value="TF" title="French Southern Territories (the)">TF</option>
+                    <option value="GA" title="Gabon">GA</option>
+                    <option value="GM" title="Gambia (the)">GM</option>
+                    <option value="GE" title="Georgia">GE</option>
+                    <option value="DE" title="Germany">DE</option>
+                    <option value="GH" title="Ghana">GH</option>
+                    <option value="GI" title="Gibraltar">GI</option>
+                    <option value="GR" title="Greece">GR</option>
+                    <option value="GL" title="Greenland">GL</option>
+                    <option value="GD" title="Grenada">GD</option>
+                    <option value="GP" title="Guadeloupe">GP</option>
+                    <option value="GU" title="Guam">GU</option>
+                    <option value="GT" title="Guatemala">GT</option>
+                    <option value="GG" title="Guernsey">GG</option>
+                    <option value="GN" title="Guinea">GN</option>
+                    <option value="GW" title="Guinea-Bissau">GW</option>
+                    <option value="GY" title="Guyana">GY</option>
+                    <option value="HT" title="Haiti">HT</option>
+                    <option value="HM" title="Heard Island and McDonald Islands">HM</option>
+                    <option value="VA" title="Holy See (the)">VA</option>
+                    <option value="HN" title="Honduras">HN</option>
+                    <option value="HK" title="Hong Kong">HK</option>
+                    <option value="HU" title="Hungary">HU</option>
+                    <option value="IS" title="Iceland">IS</option>
+                    <option value="IN" title="India">IN</option>
+                    <option value="ID" title="Indonesia">ID</option>
+                    <option value="IR" title="Iran (Islamic Republic of)">IR</option>
+                    <option value="IQ" title="Iraq">IQ</option>
+                    <option value="IE" title="Ireland">IE</option>
+                    <option value="IM" title="Isle of Man">IM</option>
+                    <option value="IL" title="Israel">IL</option>
+                    <option value="IT" title="Italy">IT</option>
+                    <option value="JM" title="Jamaica">JM</option>
+                    <option value="JP" title="Japan">JP</option>
+                    <option value="JE" title="Jersey">JE</option>
+                    <option value="JO" title="Jordan">JO</option>
+                    <option value="KZ" title="Kazakhstan">KZ</option>
+                    <option value="KE" title="Kenya">KE</option>
+                    <option value="KI" title="Kiribati">KI</option>
+                    <option value="KP" title="Korea (the Democratic People's Republic of)">KP</option>
+                    <option value="KR" title="Korea (the Republic of)">KR</option>
+                    <option value="KW" title="Kuwait">KW</option>
+                    <option value="KG" title="Kyrgyzstan">KG</option>
+                    <option value="LA" title="Lao People's Democratic Republic (the)">LA</option>
+                    <option value="LV" title="Latvia">LV</option>
+                    <option value="LB" title="Lebanon">LB</option>
+                    <option value="LS" title="Lesotho">LS</option>
+                    <option value="LR" title="Liberia">LR</option>
+                    <option value="LY" title="Libya">LY</option>
+                    <option value="LI" title="Liechtenstein">LI</option>
+                    <option value="LT" title="Lithuania">LT</option>
+                    <option value="LU" title="Luxembourg">LU</option>
+                    <option value="MO" title="Macao">MO</option>
+                    <option value="MK" title="Macedonia (the former Yugoslav Republic of)">MK</option>
+                    <option value="MG" title="Madagascar">MG</option>
+                    <option value="MW" title="Malawi">MW</option>
+                    <option value="MY" title="Malaysia">MY</option>
+                    <option value="MV" title="Maldives">MV</option>
+                    <option value="ML" title="Mali">ML</option>
+                    <option value="MT" title="Malta">MT</option>
+                    <option value="MH" title="Marshall Islands (the)">MH</option>
+                    <option value="MQ" title="Martinique">MQ</option>
+                    <option value="MR" title="Mauritania">MR</option>
+                    <option value="MU" title="Mauritius">MU</option>
+                    <option value="YT" title="Mayotte">YT</option>
+                    <option value="MX" title="Mexico">MX</option>
+                    <option value="FM" title="Micronesia (Federated States of)">FM</option>
+                    <option value="MD" title="Moldova (the Republic of)">MD</option>
+                    <option value="MC" title="Monaco">MC</option>
+                    <option value="MN" title="Mongolia">MN</option>
+                    <option value="ME" title="Montenegro">ME</option>
+                    <option value="MS" title="Montserrat">MS</option>
+                    <option value="MA" title="Morocco">MA</option>
+                    <option value="MZ" title="Mozambique">MZ</option>
+                    <option value="MM" title="Myanmar">MM</option>
+                    <option value="NA" title="Namibia">NA</option>
+                    <option value="NR" title="Nauru">NR</option>
+                    <option value="NP" title="Nepal">NP</option>
+                    <option value="NL" title="Netherlands (the)">NL</option>
+                    <option value="NC" title="New Caledonia">NC</option>
+                    <option value="NZ" title="New Zealand">NZ</option>
+                    <option value="NI" title="Nicaragua">NI</option>
+                    <option value="NE" title="Niger (the)">NE</option>
+                    <option value="NG" title="Nigeria">NG</option>
+                    <option value="NU" title="Niue">NU</option>
+                    <option value="NF" title="Norfolk Island">NF</option>
+                    <option value="MP" title="Northern Mariana Islands (the)">MP</option>
+                    <option value="NO" title="Norway">NO</option>
+                    <option value="OM" title="Oman">OM</option>
+                    <option value="PK" title="Pakistan">PK</option>
+                    <option value="PW" title="Palau">PW</option>
+                    <option value="PS" title="Palestine, State of">PS</option>
+                    <option value="PA" title="Panama">PA</option>
+                    <option value="PG" title="Papua New Guinea">PG</option>
+                    <option value="PY" title="Paraguay">PY</option>
+                    <option value="PE" title="Peru">PE</option>
+                    <option value="PH" title="Philippines (the)">PH</option>
+                    <option value="PN" title="Pitcairn">PN</option>
+                    <option value="PL" title="Poland">PL</option>
+                    <option value="PT" title="Portugal">PT</option>
+                    <option value="PR" title="Puerto Rico">PR</option>
+                    <option value="QA" title="Qatar">QA</option>
+                    <option value="RE" title="Réunion">RE</option>
+                    <option value="RO" title="Romania">RO</option>
+                    <option value="RU" title="Russian Federation (the)">RU</option>
+                    <option value="RW" title="Rwanda">RW</option>
+                    <option value="BL" title="Saint Barthélemy">BL</option>
+                    <option value="SH" title="Saint Helena, Ascension and Tristan da Cunha">SH</option>
+                    <option value="KN" title="Saint Kitts and Nevis">KN</option>
+                    <option value="LC" title="Saint Lucia">LC</option>
+                    <option value="MF" title="Saint Martin (French part)">MF</option>
+                    <option value="PM" title="Saint Pierre and Miquelon">PM</option>
+                    <option value="VC" title="Saint Vincent and the Grenadines">VC</option>
+                    <option value="WS" title="Samoa">WS</option>
+                    <option value="SM" title="San Marino">SM</option>
+                    <option value="ST" title="Sao Tome and Principe">ST</option>
+                    <option value="SA" title="Saudi Arabia">SA</option>
+                    <option value="SN" title="Senegal">SN</option>
+                    <option value="RS" title="Serbia">RS</option>
+                    <option value="SC" title="Seychelles">SC</option>
+                    <option value="SL" title="Sierra Leone">SL</option>
+                    <option value="SG" title="Singapore">SG</option>
+                    <option value="SX" title="Sint Maarten (Dutch part)">SX</option>
+                    <option value="SK" title="Slovakia">SK</option>
+                    <option value="SI" title="Slovenia">SI</option>
+                    <option value="SB" title="Solomon Islands">SB</option>
+                    <option value="SO" title="Somalia">SO</option>
+                    <option value="ZA" title="South Africa">ZA</option>
+                    <option value="GS" title="South Georgia and the South Sandwich Islands">GS</option>
+                    <option value="SS" title="South Sudan">SS</option>
+                    <option value="ES" title="Spain">ES</option>
+                    <option value="LK" title="Sri Lanka">LK</option>
+                    <option value="SD" title="Sudan (the)">SD</option>
+                    <option value="SR" title="Suriname">SR</option>
+                    <option value="SJ" title="Svalbard and Jan Mayen">SJ</option>
+                    <option value="SE" title="Sweden">SE</option>
+                    <option value="CH" title="Switzerland">CH</option>
+                    <option value="SY" title="Syrian Arab Republic">SY</option>
+                    <option value="TW" title="Taiwan (Province of China)">TW</option>
+                    <option value="TJ" title="Tajikistan">TJ</option>
+                    <option value="TZ" title="Tanzania, United Republic of">TZ</option>
+                    <option value="TH" title="Thailand">TH</option>
+                    <option value="TL" title="Timor-Leste">TL</option>
+                    <option value="TG" title="Togo">TG</option>
+                    <option value="TK" title="Tokelau">TK</option>
+                    <option value="TO" title="Tonga">TO</option>
+                    <option value="TT" title="Trinidad and Tobago">TT</option>
+                    <option value="TN" title="Tunisia">TN</option>
+                    <option value="TR" title="Turkey">TR</option>
+                    <option value="TM" title="Turkmenistan">TM</option>
+                    <option value="TC" title="Turks and Caicos Islands (the)">TC</option>
+                    <option value="TV" title="Tuvalu">TV</option>
+                    <option value="UG" title="Uganda">UG</option>
+                    <option value="UA" title="Ukraine">UA</option>
+                    <option value="AE" title="United Arab Emirates (the)">AE</option>
+                    <option value="GB" title="United Kingdom of Great Britain and Northern Ireland (the)">GB</option>
+                    <option value="UM" title="United States Minor Outlying Islands (the)">UM</option>
+                    <option selected="selected" value="US" title="United States of America (the)">US</option>
+                    <option value="UY" title="Uruguay">UY</option>
+                    <option value="UZ" title="Uzbekistan">UZ</option>
+                    <option value="VU" title="Vanuatu">VU</option>
+                    <option value="VE" title="Venezuela (Bolivarian Republic of)">VE</option>
+                    <option value="VN" title="Viet Nam">VN</option>
+                    <option value="VG" title="Virgin Islands (British)">VG</option>
+                    <option value="VI" title="Virgin Islands (U.S.)">VI</option>
+                    <option value="WF" title="Wallis and Futuna">WF</option>
+                    <option value="EH" title="Western Sahara*">EH</option>
+                    <option value="YE" title="Yemen">YE</option>
+                    <option value="ZM" title="Zambia">ZM</option>
+                    <option value="ZW" title="Zimbabwe">ZW</option>
+                </select>
                 <input id="submit" type="button" class="btn btn-xs btn-default" value="Update" />
             </div>
         </div>
@@ -76,6 +331,7 @@
                                     <tr>
                                         <th>Date/Time</th>
                                         <th>Forecast &deg;F</th>
+                                        <th>Description</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
@@ -119,6 +375,9 @@
         // chart object
         var chart = null;
 
+        function round(x, n) {
+            return Math.round(x * (10*n)) / (10*n);
+        }
 
         // Converts kelvin to fahrenheit
         function KtoF(x) {
@@ -144,11 +403,28 @@
                 var t = KtoF(x.main.temp).toFixed(1);
                 var d = new Date(x.dt * 1000);
                 d = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+                var w = '';
+
+                for (i=0; i<x.weather.length; ++i) {
+                    w += x.weather[i].description;
+
+                    switch (x.weather[i].main) {
+                        case "Rain":
+                            w += ' (' + round(x.rain['3h'], 2) + '")';
+                            break;
+                        case "Snow":
+                            w += ' (' + round(x.snow['3h'], 2) + '")';
+                            break;
+                    }
+
+                    if (i < (x.weather.length))
+                        w += '<br/>';
+                }
 
                 xaxis.push(d);
                 temps.push(t);
 
-                $('.results-table > tbody').append('<tr><td>'+ d +'</td><td>'+t+'</td></tr>');
+                $('.results-table > tbody').append('<tr><td>' + d + '</td><td>' + t + '</td><td>' + w + '</td></tr>');
             });
 
             // chart.js configuration object
@@ -206,25 +482,40 @@
         // pull data from API based on value in zipcode field
         function PullData() {
             var zipcode = $('#zipcode').val();
+            var cityname = $('#cityname').val();
+            var countrycode = $('option:selected', '#countrycode').val();
 
-            // check for valid zipcode
-            if (zipcode.length != 5) {
+            if (zipcode.length == 0 && cityname.length == 0) {
+                alert('You have to search by either zipcode or city name.');
+                return;
+            } else if (zipcode.length > 0 && zipcode.length < 5) {
                 alert('Invalid zipcode (must be 5 digits).');
                 return;
             }
+
+            var url = 'https://api.openweathermap.org/data/2.5/forecast';
+            var data = {
+                appid: '0d09d4a432b8aff72b20694b8b872f56'
+            };
+
+            if (zipcode.length == 5) {
+                data.zip = zipcode + ',' + countrycode;
+            } else if (cityname.length > 0) {
+                data.q = cityname + ',' + countrycode;
+            }
+
+            debugger
 
             // execute AJAX call for API.
             // results will be processed asynchronously
             $.ajax({
                 //url: url,
-                url: 'https://api.openweathermap.org/data/2.5/forecast',
-                data: {
-                    appid: '0d09d4a432b8aff72b20694b8b872f56',
-                    zip: zipcode + ',us'
-                },
+                url: url,
+                data: data,
                 dataType: 'json',
                 method: 'GET',
                 async: true,
+                cache: false,
                 success: function (response) {
                     var html = JSON.stringify(response, null, '\t');
                     localStorage.setItem('weatherapi', JSON.stringify(response));
@@ -255,6 +546,17 @@
             
 
             $('#zipcode').on('keydown', function (e) {
+                if ($(this).val().length > 0)
+                    $('#cityname').val('');
+
+                if (e.which == 13) {
+                    PullData();
+                }
+            });
+            $('#cityname').on('keydown', function (e) {
+                if ($(this).val().length > 0)
+                    $('#zipcode').val('');
+
                 if (e.which == 13) {
                     PullData();
                 }
