@@ -396,14 +396,17 @@
             var xaxis = []; // x-axis labels
             var temps = []; // temperature values
 
+            // add the raw API text to the page
             $('#apiresult').html(JSON.stringify(data, null, '\t'));
 
+            // populate the table view of the results
             $('.results-table > tbody').html(''); // clear data table body
             data.list.forEach(function (x) {
                 var t = KtoF(x.main.temp).toFixed(1);
-                var d = new Date(x.dt * 1000);
-                d = d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+                var datetime = new Date(x.dt * 1000); // API's dates are in seconds, so it needs to be converted to millisecond
+                var d = datetime.toLocaleDateString() + ' ' + datetime.toLocaleTimeString();
                 var w = '';
+                var icon = null;
 
                 for (i=0; i<x.weather.length; ++i) {
                     w += x.weather[i].description;
@@ -411,11 +414,26 @@
                     switch (x.weather[i].main) {
                         case "Rain":
                             w += ' (' + round(x.rain['3h'], 2) + '")';
+                            icon = 'rain heavy.svg';
                             break;
                         case "Snow":
                             w += ' (' + round(x.snow['3h'], 2) + '")';
+                            icon = 'snow heavy.svg';
                             break;
+                        case "Clouds":
+                            icon = 'partly cloudy.svg';
+                            break;
+                        case "Clear":
+                            if (datetime.getHours() > 7 && datetime.getHours() < 18)
+                                icon = 'sunny.svg';
+                            else
+                                icon = 'clear night.svg';
+                            break;
+                        default:
+                            console.log('weather.main = ' + x.weather[i].main);
                     }
+
+
 
                     if (i < (x.weather.length))
                         w += '<br/>';
@@ -424,7 +442,7 @@
                 xaxis.push(d);
                 temps.push(t);
 
-                $('.results-table > tbody').append('<tr><td>' + d + '</td><td>' + t + '</td><td>' + w + '</td></tr>');
+                $('.results-table > tbody').append('<tr><td>' + d + '</td><td>' + t + '</td><td><img src="animated/'+icon+'" />' + w + '</td></tr>');
             });
 
             // chart.js configuration object
@@ -485,6 +503,7 @@
             var cityname = $('#cityname').val();
             var countrycode = $('option:selected', '#countrycode').val();
 
+            // search form validation
             if (zipcode.length == 0 && cityname.length == 0) {
                 alert('You have to search by either zipcode or city name.');
                 return;
@@ -498,13 +517,12 @@
                 appid: '0d09d4a432b8aff72b20694b8b872f56'
             };
 
+            // decide to search by zip or city name
             if (zipcode.length == 5) {
                 data.zip = zipcode + ',' + countrycode;
             } else if (cityname.length > 0) {
                 data.q = cityname + ',' + countrycode;
             }
-
-            debugger
 
             // execute AJAX call for API.
             // results will be processed asynchronously
@@ -553,6 +571,7 @@
                     PullData();
                 }
             });
+
             $('#cityname').on('keydown', function (e) {
                 if ($(this).val().length > 0)
                     $('#zipcode').val('');
@@ -561,13 +580,12 @@
                     PullData();
                 }
             });
-
             
             $('#submit').on('click', function(){
                 PullData();
             });
 
-            
+            // handles panels with collapsable bodies
             $('button[data-toggle="collapse"]').on('click', function(e) {
                 e.preventDefault();
 
